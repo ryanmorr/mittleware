@@ -34,8 +34,16 @@ describe('middleware', () => {
         });
     });
 
+    it('should support a default callback that will resolve the promise and pass the data', (done) => {
+        const mw = middleware();
+        mw.run('foo').then((data) => {
+            expect(data).to.equal('foo');
+            done();
+        });
+    });
+
     it('should add and call middleware', (done) => {
-        const mw = middleware((data, resolve) => resolve(data));
+        const mw = middleware();
 
         const middleware1 = sinon.spy((data, next) => next(data));
         const middleware2 = sinon.spy((data, next) => next(data));
@@ -71,7 +79,7 @@ describe('middleware', () => {
     it('should require middleware to pass the data to the next one', (done) => {
         const obj = {foo: 1};
 
-        const mw = middleware((data, resolve) => resolve(data));
+        const mw = middleware();
 
         const middleware1 = sinon.spy((data, next) => {
             expect(data).to.equal(obj);

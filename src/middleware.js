@@ -1,5 +1,5 @@
 class Middleware {
-    constructor(callback) {
+    constructor(callback = (data, next) => next(data)) {
         this.callback = callback;
         this.middleware = [];
     }
