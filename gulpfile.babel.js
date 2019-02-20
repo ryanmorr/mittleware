@@ -20,7 +20,7 @@ const config = {
     entryFile: './src/middleware.js',
     outputFile: 'middleware.js',
     outputDir: './dist/',
-    specs: './test/*.js'
+    specs: './test/specs/**/*.js'
 };
 
 function unitTests() {
