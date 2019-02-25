@@ -1,4 +1,4 @@
-export default function middleware(callback = (data, next) => next(data)) {
+export default function middleware() {
     const middleware = [];
 
     return {
@@ -29,15 +29,15 @@ export default function middleware(callback = (data, next) => next(data)) {
                         if (!resolved) {
                             const mw = middleware[++i];
                             if (mw) {
-                                mw(data, next, error);
+                                mw(data, next, done, error);
                             } else {
-                                callback(data, done, error);
+                                done(data);
                             }
                         }
                     };
-                    middleware[i](data, next, error);
+                    middleware[i](data, next, done, error);
                 } else {
-                    callback(data, done, error);
+                    done(data);
                 }
             });
         }
