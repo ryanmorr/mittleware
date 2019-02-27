@@ -20,8 +20,7 @@ describe('mittleware', () => {
         const middleware1 = sinon.spy((data, next) => next(data));
         const middleware2 = sinon.spy((data, next) => next(data));
 
-        mw.use(middleware1);
-        mw.use(middleware2);
+        mw.use(middleware1).use(middleware2);
 
         mw.dispatch('foo').then((data) => {
             expect(data).to.equal('foo');

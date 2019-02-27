@@ -4,6 +4,7 @@ export default function mittleware() {
     return {
         use(callback) {
             middleware.push(callback);
+            return this;
         },
 
         dispatch(data) {
