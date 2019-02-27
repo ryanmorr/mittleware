@@ -6,7 +6,7 @@ export default function middleware() {
             middleware.push(callback);
         },
 
-        run(data) {
+        dispatch(data) {
             return new Promise((resolve, reject) => {
                 let resolved = false;
                 const error = (obj) => {

@@ -5,7 +5,7 @@ import middleware from '../../src/middleware';
 describe('middleware', () => {
     it('should return a promise that is automatically resolved with the data if no middleware exists', (done) => {
         const mw = middleware();
-        const promise = mw.run('foo');
+        const promise = mw.dispatch('foo');
 
         expect(promise).to.be.a('promise');
         promise.then((data) => {
@@ -23,7 +23,7 @@ describe('middleware', () => {
         mw.use(middleware1);
         mw.use(middleware2);
 
-        mw.run('foo').then((data) => {
+        mw.dispatch('foo').then((data) => {
             expect(data).to.equal('foo');
             expect(middleware1.called).to.equal(true);
             expect(middleware2.called).to.equal(true);
@@ -41,7 +41,7 @@ describe('middleware', () => {
         mw.use(middleware2);
         mw.use(middleware3);
 
-        mw.run('foo').then(() => {
+        mw.dispatch('foo').then(() => {
             expect(middleware1.calledBefore(middleware2)).to.equal(true);
             expect(middleware2.calledBefore(middleware3)).to.equal(true);
             expect(middleware3.called).to.equal(true);
@@ -77,7 +77,7 @@ describe('middleware', () => {
         mw.use(middleware2);
         mw.use(middleware3);
 
-        mw.run(obj).then((data) => {
+        mw.dispatch(obj).then((data) => {
             expect(data).to.equal(obj);
             expect(data.foo).to.equal(4);
             done();
@@ -92,7 +92,7 @@ describe('middleware', () => {
         mw.use(middleware1);
         mw.use(middleware2);
 
-        mw.run('foo');
+        mw.dispatch('foo');
         expect(middleware1.called).to.equal(true);
         expect(middleware2.called).to.equal(false);
     });
@@ -108,7 +108,7 @@ describe('middleware', () => {
         mw.use(middleware2);
         mw.use(middleware3);
 
-        const promise = mw.run('foo');
+        const promise = mw.dispatch('foo');
         expect(middleware1.called).to.equal(true);
         expect(middleware2.called).to.equal(true);
         expect(middleware3.called).to.equal(false);
@@ -128,7 +128,7 @@ describe('middleware', () => {
         mw.use(middleware2);
         mw.use(middleware3);
 
-        const promise = mw.run('foo');
+        const promise = mw.dispatch('foo');
         expect(middleware1.called).to.equal(true);
         expect(middleware2.called).to.equal(true);
         expect(middleware3.called).to.equal(false);
@@ -146,7 +146,7 @@ describe('middleware', () => {
         const mw = middleware();
         mw.use(middleware1);
 
-        mw.run('foo').then((data) => {
+        mw.dispatch('foo').then((data) => {
             expect(data).to.equal('foo');
             expect(middleware1.called).to.equal(true);
             done();
