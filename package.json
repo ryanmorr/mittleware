@@ -1,17 +1,17 @@
 {
-  "name": "@ryanmorr/middleware",
+  "name": "@ryanmorr/mittleware",
   "description": "Piping hot middleware",
   "version": "0.1.0",
   "license": "Unlicense",
-  "homepage": "https://github.com/ryanmorr/middleware",
-  "main": "dist/middleware.min.js",
+  "homepage": "https://github.com/ryanmorr/mittleware",
+  "main": "dist/mittleware.min.js",
   "author": "Ryan Morr",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ryanmorr/middleware.git"
+    "url": "git://github.com/ryanmorr/mittleware.git"
   },
   "bugs": {
-    "url": "https://github.com/ryanmorr/middleware/issues"
+    "url": "https://github.com/ryanmorr/mittleware/issues"
   },
   "publishConfig": {
     "access": "public"

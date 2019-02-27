@@ -15,10 +15,10 @@ import buffer from 'vinyl-buffer';
 const banner = `/*! ${pkg.name} v${pkg.version} | ${pkg.homepage} */\n`;
 
 const config = {
-    name: 'middleware',
+    name: 'mittleware',
     files: './src/**/*.js',
-    entryFile: './src/middleware.js',
-    outputFile: 'middleware.js',
+    entryFile: './src/mittleware.js',
+    outputFile: 'mittleware.js',
     outputDir: './dist/',
     specs: './test/specs/**/*.js'
 };

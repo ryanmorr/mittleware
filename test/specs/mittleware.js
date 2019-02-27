@@ -1,10 +1,10 @@
 import sinon from 'sinon';
 import { expect } from 'chai';
-import middleware from '../../src/middleware';
+import mittleware from '../../src/mittleware';
 
-describe('middleware', () => {
+describe('mittleware', () => {
     it('should return a promise that is automatically resolved with the data if no middleware exists', (done) => {
-        const mw = middleware();
+        const mw = mittleware();
         const promise = mw.dispatch('foo');
 
         expect(promise).to.be.a('promise');
@@ -15,7 +15,7 @@ describe('middleware', () => {
     });
 
     it('should add and call middleware', (done) => {
-        const mw = middleware();
+        const mw = mittleware();
 
         const middleware1 = sinon.spy((data, next) => next(data));
         const middleware2 = sinon.spy((data, next) => next(data));
@@ -36,7 +36,7 @@ describe('middleware', () => {
         const middleware2 = sinon.spy((data, next) => next(data));
         const middleware3 = sinon.spy((data, next) => next(data));
 
-        const mw = middleware();
+        const mw = mittleware();
         mw.use(middleware1);
         mw.use(middleware2);
         mw.use(middleware3);
@@ -52,7 +52,7 @@ describe('middleware', () => {
     it('should require middleware to pass the data to the next one', (done) => {
         const obj = {foo: 1};
 
-        const mw = middleware();
+        const mw = mittleware();
 
         const middleware1 = sinon.spy((data, next) => {
             expect(data).to.equal(obj);
@@ -88,7 +88,7 @@ describe('middleware', () => {
         const middleware1 = sinon.spy(() => {});
         const middleware2 = sinon.spy((data, next) => next(data));
 
-        const mw = middleware();
+        const mw = mittleware();
         mw.use(middleware1);
         mw.use(middleware2);
 
@@ -103,7 +103,7 @@ describe('middleware', () => {
         const middleware2 = sinon.spy((data, next, resolve, reject) => reject(error));
         const middleware3 = sinon.spy((data, next) => next(data));
 
-        const mw = middleware();
+        const mw = mittleware();
         mw.use(middleware1);
         mw.use(middleware2);
         mw.use(middleware3);
@@ -123,7 +123,7 @@ describe('middleware', () => {
         const middleware2 = sinon.spy((data, next, resolve) => resolve(data));
         const middleware3 = sinon.spy((data, next) => next(data));
 
-        const mw = middleware();
+        const mw = mittleware();
         mw.use(middleware1);
         mw.use(middleware2);
         mw.use(middleware3);
@@ -143,7 +143,7 @@ describe('middleware', () => {
             setTimeout(() => next(data), 100);
         });
 
-        const mw = middleware();
+        const mw = mittleware();
         mw.use(middleware1);
 
         mw.dispatch('foo').then((data) => {

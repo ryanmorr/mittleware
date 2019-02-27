@@ -1,4 +1,4 @@
-export default function middleware() {
+export default function mittleware() {
     const middleware = [];
 
     return {
