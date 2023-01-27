@@ -26,7 +26,7 @@ mw.use((data, next) => {
     next(data);
 });
 
-mw.use((data. next. resolve, reject) => {
+mw.use((data, next, resolve, reject) => {
     if (isInvalid(data)) {
         reject(new Error('Invalid parameters'));
     }
