@@ -16,7 +16,7 @@ npm install @ryanmorr/mittleware
 
 ## Usage
 
-Add middleware for sequentially and asynchronously processing data. Each piece of middleware is responsible for passing the data to the next one. Optionally, middleware can resolve or reject the process immediately if it is finished or encounters an error:
+Combines the concepts of middleware and pipes to sequentially and asynchronously process data. Each piece of middleware is responsible for passing the data to the next one. Optionally, middleware can resolve or reject the process immediately if it is finished or encounters an error:
 
 ``` javascript
 import mittleware from '@ryanmorr/mittleware';
