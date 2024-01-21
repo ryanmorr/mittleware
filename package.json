@@ -1,7 +1,7 @@
 {
   "name": "@ryanmorr/mittleware",
   "description": "Piping hot middleware",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Unlicense",
   "homepage": "https://github.com/ryanmorr/mittleware",
   "bugs": "https://github.com/ryanmorr/mittleware/issues",
