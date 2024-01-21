@@ -1,0 +1,2 @@
+/*! @ryanmorr/mittleware v0.1.1 | https://github.com/ryanmorr/mittleware */
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).mittleware=t()}(this,(function(){"use strict";return function(){const e=[];return{use(t){return e.push(t),this},dispatch:t=>new Promise(((n,o)=>{if(e[0]){let i=0;const s=()=>{const f=e[++i];f?f(t,s,n,o):n(t)};e[i](t,s,n,o)}else n(t)}))}}}));
