@@ -1,6 +1,6 @@
 import sinon from 'sinon';
 import { expect } from 'chai';
-import mittleware from '../../src/mittleware';
+import mittleware from '../../src/mittleware.js';
 
 describe('mittleware', () => {
     it('should return a promise that is automatically resolved with the data if no middleware exists', (done) => {
